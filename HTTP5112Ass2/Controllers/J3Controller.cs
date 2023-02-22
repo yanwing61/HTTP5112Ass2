@@ -34,7 +34,7 @@ namespace HTTP5112Ass2.Controllers
 
         [HttpGet]
         [Route("api/J3/Road/{city12}/{city23}/{city34}/{city45}")]
-        public string Road (int city12, int city23, int city34, int city45)
+        public IEnumerable<string> Road (int city12, int city23, int city34, int city45)
         {
         // I know the codes are so repetitive but this is the only way I can figure out to solve this problem so far.
 
@@ -82,9 +82,7 @@ namespace HTTP5112Ass2.Controllers
                 outputline5 = outputline5 + cityfive[i] + " ";
             }
 
-            //I try to output them as five lines but it seems does not work.
-
-            var output = String.Join(Environment.NewLine, outputline1, outputline2, outputline3, outputline4, outputline5);
+            IEnumerable<string> output = new string[] { outputline1, outputline2, outputline3, outputline4, outputline5 };
   
             return output;
 
